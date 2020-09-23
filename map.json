@@ -1,0 +1,136 @@
+{
+    "table": "notification",
+    "mapping": [
+        {
+            "eventName": "createLock",
+            "options": {
+                "conditions": {
+                    "eventData.log.type": 0
+                }
+            },
+            "map": {
+                "text": "eventData.log.s_content",
+                "image": "eventData.log.coverImg",
+                "timestamp": "!now",
+                "item_id": "eventData.log.id",
+                "item_type": "eventData.log.type",
+                "item_status": "eventData.log.status",
+                "item_sender": "eventData.log.sender",
+                "item_receiver": "eventData.log.receiver"
+            }
+        },
+        {
+            "eventName": "confirmLock",
+            "options": {
+                "conditions": {
+                    "eventData.log.status": 1
+                }
+            },
+            "map": {
+                "text": "eventData.log.s_content",
+                "image": "eventData.log.coverImg",
+                "timestamp": "!now",
+                "item_id": "eventData.log.id",
+                "item_type": "eventData.log.type",
+                "item_status": "eventData.log.status",
+                "item_sender": "eventData.log.sender",
+                "item_receiver": "eventData.log.receiver"
+            }
+        },
+        {
+            "eventName": "addMemory",
+            "options": {
+                "conditions": {
+                    "eventData.log.info.blog/Boolean": false,
+                    "eventData.log.type": 0
+                },
+                "tagPath": "eventData.log.content"
+            },
+            "map": {
+                "text": "eventData.log.content",
+                "image": "eventData.log.info.hash.0",
+                "item_id": "eventData.log.id",
+                "item_type": "eventData.log.type",
+                "item_data": "eventData.log.lockIndex",
+                "timestamp": "!now",
+                "item_sender": "eventData.log.sender",
+                "item_receiver": "eventData.log.receiver"
+            }
+        },
+        {
+            "eventName": "addMemory",
+            "options": {
+                "conditions": {
+                    "eventData.log.info.blog": true
+                }
+            },
+            "map": {
+                "text": "eventData.log.content/JSON.parse/_get.meta.title",
+                "image": "eventData.log.content/JSON.parse/_get.meta.coverPhoto.url",
+                "item_id": "eventData.log.id",
+                "item_type": "eventData.log.type",
+                "item_flag": true,
+                "timestamp": "!now",
+                "item_sender": "eventData.log.sender",
+                "item_receiver": "eventData.log.receiver"
+            }
+        },
+        {
+            "eventName": "addLike",
+            "options": {
+                "conditions": {
+                    "eventData.log.isLike": true
+                }
+            },
+            "map": {
+                "item_id": "eventData.log.id",
+                "item_type": "eventData.log.type",
+                "item_flag": true,
+                "timestamp": "eventData.log.timestamp",
+                "item_sender": "eventData.log.sender",
+                "item_receiver": "eventData.log.receiver"
+            }
+        },
+        {
+            "eventName": "addComment",
+            "options": {
+                "tagPath": "eventData.log.content"
+            },
+            "map": {
+                "item_id": "eventData.log.id",
+                "text": "eventData.log.content",
+                "timestamp": "eventData.log.timestamp",
+                "item_sender": "eventData.log.sender",
+                "item_receiver": "eventData.log.receiver"
+            }
+        },
+        {
+            "eventName": "followLock",
+            "options": {
+                "conditions": {
+                    "eventData.log.isFollow": true
+                }
+            },
+            "map": {
+                "text": "eventData.log.lockName",
+                "item_id": "eventData.log.id",
+                "timestamp": "eventData.log.timestamp",
+                "item_sender": "eventData.log.sender",
+                "item_receiver": "eventData.log.receiver"
+            }
+        },
+        {
+            "eventName": "followPerson",
+            "options": {
+                "conditions": {
+                    "eventData.log.isFollow": true
+                }
+            },
+            "map": {
+                "text": "eventData.log.lockName",
+                "timestamp": "eventData.log.timestamp",
+                "item_receiver": "eventData.log.receiver"
+            }
+        }
+    ]
+}
