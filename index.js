@@ -38,9 +38,9 @@ app.post('/firebase/noti', (req, res) => {
     const options =  notification_options
     
       admin.messaging().sendToDevice(registrationToken, message, options)
-      .then( res => {
-
-       console.log(res);
+      .then( response => {
+        console.log(response);
+        res.status(200).send("Succesfully sent!");
        
       })
       .catch( error => {
