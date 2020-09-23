@@ -1,3 +1,3 @@
 # Send-Noti
-yarn install
+yarn install------
 yarn start
