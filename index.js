@@ -13,7 +13,7 @@ admin.initializeApp({
   databaseURL: "https://my-icetea.firebaseio.com"
 });
 
-const port = process.env.PORT || 6000;
+const port = process.env.PORT || 3000;
 
 
 app.use(bodyParser.json());
